@@ -1,0 +1,19 @@
+1:C 18 May 2022 16:00:22.070 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:00:41.896 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:00:43.951 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:00:45.792 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:00:47.705 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:00:49.795 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:00:52.644 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:00:57.114 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:01:04.721 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:01:18.816 # Can't chdir to '/data/redis/db/': No such file or directory
+1:C 18 May 2022 16:01:45.762 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 18 May 2022 16:01:45.763 # Redis version=6.2.7, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 18 May 2022 16:01:45.764 # Configuration loaded
+1:M 18 May 2022 16:01:45.765 * monotonic clock: POSIX clock_gettime
+1:M 18 May 2022 16:01:45.766 # A key '__redis__compare_helper' was added to Lua globals which is not on the globals allow list nor listed on the deny list.
+1:M 18 May 2022 16:01:45.769 * Running mode=standalone, port=6379.
+1:M 18 May 2022 16:01:45.770 # Server initialized
+1:M 18 May 2022 16:01:45.770 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 18 May 2022 16:01:45.772 * Ready to accept connections

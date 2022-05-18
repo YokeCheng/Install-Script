@@ -2,11 +2,11 @@ version: "3.3"
 
 services:
   redis:
-    image: redis:4
+    image: "redis:6.2"
     environment:
       TZ: Asia/Shanghai
     ports:
-      - 6379:6379
+      - "6380:6379"
     command: [ "redis-server","/etc/redis.conf" ]
     restart: always
     volumes:

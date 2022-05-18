@@ -1,28 +1,14 @@
 version: '3.3'
 
 services:
-  mongo:
-    restart: always
-    # build: .
-    image: mongo:4.4.8-rc0-focal
-    container_name: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      # 数据目录  挂载出来后，即使删除容器，再用该挂载数据与docker-compose.yml文件启动容器，即可恢复到原来的数据以及用户信息
-      - ./data/db:/data/db
-      # 挂载日志目录
-      - ./data/log:/var/log/mongodb
-      # 自定义数据备份目录，可以定时全量备份数据出来
-      - ./mybackup:/mybackup
-      # 时区
-      - /etc/localtime:/etc/localtime
-      # 配置文件
-      - ./mongod.conf:/data/mongo/mongo.conf
-    environment:
-      - TZ=Asia/Shanghai
-      # 缓存大小配置为使用 1.5GB ， 考虑服务器中还有其他服务需要占用内存，可自定义大小
-      - wiredTigerCacheSizeGB=1.5
-
-    # --auth 开启权限认证       --noauth 关闭权限认证，找回密码时使用此配置重启服务
-    command: mongod --auth
+    zoo1:
+      image: 'zookeeper:3.6.3'
+      container_name: zoo1
+      hostname: zoo1
+      environment:
+        ZOO_MY_ID: 1
+        ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
+        ALLOW_ANONYMOUS_LOGIN: "yes"
+      ports:
+        - "2181:2181"
+        - "8081:8080"
