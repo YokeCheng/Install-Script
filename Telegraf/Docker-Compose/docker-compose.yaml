@@ -1,0 +1,19 @@
+version: "3.3"
+
+networks:
+  nightingale:
+    driver: bridge
+
+services:
+  telegraf:
+    image: "telegraf:1.20.3"
+    hostname: "telegraf01"
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./telegrafetc/telegraf.conf:/etc/telegraf/telegraf.conf
+    ports:
+      - "8125:8125/udp"
+      - "8092:8092/udp"
+      - "8094:8094/tcp"

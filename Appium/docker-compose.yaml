@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  appium:
+    image: "budtmo/docker-android-x86-8.1"
+    hostname: android-container
+    restart: always
+    ports:
+      - "6080:6080"
+      - "5554:5554"
+      - "5555:5555"
+    environment:
+      DEVICE: " Samsung Galaxy S10 "
+    privileged: true
+
+
