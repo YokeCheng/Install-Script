@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+  sugar:
+    links:
+      - sugar-mysql
+    # 共享内存的大小
+    shm_size: '4gb'
+    ulimits:
+      nofile:
+        soft: 65100
+        hard: 65100
+    env_file:
+      - './env'
+    restart: unless-stopped
+    ports:
+      - '8000:8580'
+    container_name: sugar
+    volumes:
+      - '~/sugar-log:/sugar-app/log'
+    image: 'sugarbi/sugar:4.3.1'
+

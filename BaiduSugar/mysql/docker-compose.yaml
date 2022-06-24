@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+  mysql:
+    ulimits:
+      nofile:
+        soft: 65100
+        hard: 65100
+    restart: unless-stopped
+    container_name: sugar-mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - '~/mysqlData:/var/lib/mysql'
+    environment:
+      - MYSQL_ROOT_PASSWORD=lovesugar123
+    image: mysql:5.7
+    command:
+      --max_allowed_packet=100M
+      --max_connections=1000
+
+

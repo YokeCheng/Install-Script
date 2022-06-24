@@ -4,7 +4,7 @@ services:
   mongo:
     restart: always
     # build: .
-    image: mongo:4.4.8-rc0-focal
+    image: mongo
     container_name: mongo
     ports:
       - "27017:27017"

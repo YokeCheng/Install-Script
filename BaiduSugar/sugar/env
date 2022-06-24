@@ -1,0 +1,151 @@
+love_sugar=true
+sugar_can_connect_local_ip=true
+
+# MySQL数据库相关
+sugar_db_username=root
+sugar_db_password=lovesugar123
+sugar_db_database=sugarbi
+sugar_db_host=填写您安装MySQL机器的IP，即使是本机也不能使用localhost和127.0.0.1
+sugar_db_port=3306
+
+# license相关
+sugar_company=license的组织代码
+sugar_license=具体license
+
+# redis配置
+# 如果您需要「数据缓存」或者「定时邮件」或者「数据预警」功能，需要配置这块，否侧不需要配置
+# 如果您私有部署只是单机运行（即只运行一个sugar的实例），sugar已经内置，这块不需要配置
+# 否则需要您自己搭建redis（2.6版本以上，最好是5的版本，可以使用类似上面mysql的docker方式来启动一个redis）
+sugar_redis_host=
+sugar_redis_port=
+sugar_redis_password=
+
+# 如果您搭建的 redis 是集群模式（Cluster）则需要将 sugar_redis_enable_cluster 设置为 1
+# 此时，host 和 port 可以配置多个，用英文逗号分割并且host和port的个数要相同并一一对应，
+# 如host配置为：1.1.1.1,2.2.2.2  port配置为：6379,6388
+# redis 的集群模式（Cluster），需要在 3.3.4 及以上版本中才支持
+sugar_redis_enable_cluster=
+
+# 如果您搭建的 redis 是哨兵模式（Sentinel）则需要将 sugar_redis_enable_sentinel 设置为 1
+# 并配置 sugar_redis_sentinel_name
+# 此时，host 和 port 可以配置多个，用英文逗号分割并且host和port的个数要相同并一一对应，
+# 如host配置为：1.1.1.1,2.2.2.2  port配置为：6379,6388
+# redis 的哨兵模式（Sentinel），需要在 3.5.1 及以上版本中才支持
+sugar_redis_enable_sentinel=
+# 哨兵的名称
+sugar_redis_sentinel_name=
+# 哨兵节点的密码（如果只给 Redis 主节点配置了密码，则只需要配置sugar_redis_password即可）
+sugar_redis_sentinel_password=
+
+# 登录形式，支持 demo、email、password、oauth、token、ldap
+# 如果是最初步的测试，可以使用demo方式，后面的其他登录方式的配置都可以不用填写
+sugar_login_type=demo
+
+# email登录模式的配置，以及「定时邮件」「数据预警」功能也需要这块的配置，host 是 smtp 服务器
+sugar_email_host=
+# port 一般是 25 或 465
+sugar_email_port=
+sugar_email_username=
+sugar_email_password=
+sugar_email_from=
+# 如果 smtp 端口是 465 则需要去掉下面的注释
+# sugar_email_tls=true
+
+# oauth登录模式的配置
+sugar_oauth_authorize_url=
+sugar_oauth_token_url=
+sugar_oauth_client_id=
+sugar_oauth_client_secret=
+sugar_oauth_scope=
+sugar_oauth_info_url=
+sugar_oauth_data_username=
+sugar_oauth_data_useremail=
+sugar_oauth_email_suffix=
+sugar_oauth_logout_url=
+sugar_oauth_token_get=
+
+# token登录模式的配置
+sugar_token_login_url=
+sugar_token_login_getTokenPath=
+sugar_token_login_getUserInfoURL=
+sugar_token_login_getUserInfoMethod=
+sugar_token_login_getUserInfoExtraParam=
+sugar_token_login_getUserInfoPostType=
+sugar_token_login_getUserInfoSendTokenPath=token
+sugar_token_login_getUserInfoGetUserEmailPath=
+sugar_token_login_getUserInfoGetUserNamePath=
+sugar_token_login_email_suffix=
+sugar_token_login_sync_user_attr_path=
+sugar_token_logout_url=
+
+# ldap登录模式的配置
+sugar_ldap_login_url=
+sugar_ldap_login_base=
+sugar_ldap_login_key=
+sugar_ldap_login_admin=
+sugar_ldap_login_admin_password=
+sugar_ldap_email_suffix=
+sugar_ldap_password_type=
+
+# 企业微信、钉钉和飞书的集成
+sugar_companywx_oauth_appid=
+sugar_companywx_oauth_secret=
+sugar_companywx_oauth_agentid=
+sugar_dd_oauth_appid=
+sugar_dd_oauth_appkey=
+sugar_dd_oauth_secret=
+sugar_dd_oauth_agentid=
+sugar_lark_oauth_appid=
+sugar_lark_oauth_secret=
+sugar_lark_use_private=
+sugar_lark_origin=
+
+# 企业角色相关的配置
+sugar_enterprise_role_enable=
+sugar_enterprise_role_name=
+sugar_enterprise_role_enter_tip=
+sugar_enterprise_role_url=
+sugar_enterprise_role_syncUserMethod=
+sugar_enterprise_role_syncUserSendIDPath=
+sugar_enterprise_role_syncUserArrayPath=
+sugar_enterprise_role_syncUserEmailPath=
+sugar_enterprise_role_syncUserNamePath=
+sugar_enterprise_role_userEmailSuffix=
+
+# session过期天数（默认是7，表示登录账号后7天内都有效）
+sugar_session_maxAge_days=
+# SQL查询行数和大小以及格式化时间限制
+# 查询结果的最大行数限制，云上默认是2万行、私有部署中默认10万行
+sugar_query_result_max_rows=
+# 查询结果的大小限制(单位是MB)，云上默认是15MB、私有部署中默认30MB
+sugar_query_result_max_size=
+# 查询之后的数据格式化时间限制（单位是秒，即worker的计算时间限制），默认是40秒
+sugar_worker_timeout=
+
+# 是否HTTPS，只有您部署的sugar并且设置了HTTPS证书时才需要配置
+sugar_is_https=
+# 是否忽略SQL语句的安全检查（准许SQL中出现drop、delete等关键词），默认是都检查，填写true时将不检查，1.9.1版本之后才支持
+sugar_ignore_sql_security_check=0
+# 私有部署下是否不显示home首页，直接跳到login登录页面
+sugar_home_redirect_login=0
+# 私有部署下是否不显示文档页面，直接跳转到login登录页面
+sugar_docs_redirect_login=0
+# 私有部署下是否不展示顶部导航中的文档相关入口
+sugar_hide_docs_link=0
+# 私有部署下是否隐藏空间广场右侧的官方示例和整个公告栏
+sugar_hide_demo_and_news=0
+# 私有部署下是否隐藏空间广场右下脚的产品动态
+sugar_disable_product_news=0
+# 私有部署下是否隐藏空间广场右下脚的快速入门
+sugar_disable_entry=0
+# 私有部署下想为某些固定 path 返回固定文字内容，多个时使用!S|U|G|A|R!进行分割（针对百度/微信等要求在服务器指定path下放置指定文件的情况）
+sugar_fix_path=
+# 私有部署下固定 path 返回的固定文字内容，多个时使用!S|U|G|A|R!进行分割
+sugar_fix_path_content=
+# 自动分析相关配置，默认开启
+sugar_enable_analyze=
+# 是否禁用openAPI
+sugar_disable_openapi=
+# 使用 HTTP 时可不配置本项、使用 HTTP 轮询则配置为 polling、使用 WebSocket 则配置为 websocket
+# 启用 WebSocket 方式时，需确认服务所在网络环境支持 WebSocket 连接。在集群部署中使用轮询和 WebSocket 方式时，建议前置反向代理支持 sticky-session。
+sugar_analyze_link_type=
